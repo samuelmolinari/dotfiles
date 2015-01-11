@@ -1,13 +1,14 @@
+syntax on
 let mapleader = " "
 set encoding=utf-8
 set clipboard=unnamedplus
 execute pathogen#infect()
-syntax on
 set hidden
 set clipboard=unnamed
 set backspace=2
 set backspace=indent,eol,start
 set nocompatible
+filetype off
 set background=dark
 colorscheme solarized
 set ruler
@@ -20,7 +21,9 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:tmux_navigator_no_mappings = 1
+
 highlight clear SignColumn
+
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
@@ -93,3 +96,42 @@ function! s:unite_settings()
 endfunction
 
 filetype plugin indent on
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'burnettk/vim-angular'
+Plugin 'elzr/vim-json'
+Plugin 'bling/vim-airline'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'paranoida/vim-airlineish'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'matze/vim-move'
+Plugin 'Shougo/unite.vim'
+Plugin 'othree/html5.vim'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'mattn/emmet-vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-markdown'
+Plugin 'rstacruz/sparkup'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'markcornick/vim-vagrant'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'haproxy'
+Plugin 'airblade/vim-gitgutter'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
