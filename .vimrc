@@ -35,12 +35,15 @@ Plugin 'tpope/vim-surround'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'haproxy'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'joonty/vdebug.git'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 syntax on
 let mapleader = " "
+set autoread
+au CursorHold * checktime
 set encoding=utf-8
 set clipboard=unnamedplus
 set hidden
@@ -48,6 +51,8 @@ set clipboard=unnamed
 set backspace=2
 set backspace=indent,eol,start
 set background=dark
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
 colorscheme solarized
 set ruler
 set laststatus=2

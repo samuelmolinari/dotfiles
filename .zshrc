@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="miloshadzic"
 
 bindkey -v
 
@@ -31,10 +31,12 @@ bindkey -v
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(tmux git ruby rails docker vagrant subl node meteor github zsh-syntax-highlighting vi-mode vim-interaction)
+plugins=(tmux tmuxinator git ruby rails docker vagrant subl node npm meteor github zsh-syntax-highlighting vi-mode vim-interaction web-search bower brew)
 
 
 source $ZSH/oh-my-zsh.sh
+
+PATH=$PATH:/usr/local/sbin
 
 # Customize to your needs...
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
@@ -45,6 +47,9 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:"/usr/local/heroku/bin:$PATH"
 export EDITOR=vim
 export KEYTIMEOUT=1
+
+# Docker
+export DOCKER_HOST='tcp://127.0.0.1:2375'
 
 function zle-keymap-select zle-line-init zle-line-finish {
   case $KEYMAP in
@@ -61,6 +66,6 @@ zle -N zle-line-finish
 zle -N zle-keymap-select
 
 source $(brew --prefix nvm)/nvm.sh
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/Samuel/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
+
+# added by travis gem
+[ -f /Users/samuelmolinari/.travis/travis.sh ] && source /Users/samuelmolinari/.travis/travis.sh
