@@ -36,6 +36,8 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'haproxy'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'joonty/vdebug.git'
+Plugin 'majutsushi/tagbar'
+Plugin 'Shougo/unite-outline'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -71,7 +73,7 @@ nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
-
+nmap <F8> :TagbarToggle<CR>
 map <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 map <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
@@ -123,7 +125,9 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
-nnoremap <C-P> :<C-u>Unite  -buffer-name=files   -start-insert buffer file_rec/async:!<cr>
+nnoremap <C-P> :Unite  -buffer-name=files   -start-insert buffer file_rec/async:!<cr>
+nnoremap <C-o> :Unite outline<cr>
+nnoremap <C-g> :Unite grep:.<cr>
 
 autocmd FileType unite call s:unite_settings()
 
