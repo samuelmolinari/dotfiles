@@ -38,6 +38,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'joonty/vdebug.git'
 Plugin 'majutsushi/tagbar'
 Plugin 'Shougo/unite-outline'
+Plugin 'evidens/vim-twig'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -66,6 +67,8 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:tmux_navigator_no_mappings = 1
+set mouse=a
+set ttymouse=xterm2
 
 highlight clear SignColumn
 
