@@ -31,7 +31,7 @@ bindkey -v
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(tmux tmuxinator git ruby rails docker vagrant subl node npm meteor github zsh-syntax-highlighting vi-mode vim-interaction web-search bower brew)
+plugins=(tmux tmuxinator git ruby rails docker vagrant subl node npm meteor github zsh-syntax-highlighting vi-mode vim-interaction web-search bower brew jsontools)
 
 
 source $ZSH/oh-my-zsh.sh
@@ -39,7 +39,7 @@ source $ZSH/oh-my-zsh.sh
 PATH=$PATH:/usr/local/sbin
 
 # Customize to your needs...
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
@@ -47,9 +47,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:"/usr/local/heroku/bin:$PATH"
 export EDITOR=vim
 export KEYTIMEOUT=1
-
-# Docker
-export DOCKER_HOST='tcp://127.0.0.1:2375'
 
 function zle-keymap-select zle-line-init zle-line-finish {
   case $KEYMAP in
@@ -69,3 +66,8 @@ source $(brew --prefix nvm)/nvm.sh
 
 # added by travis gem
 [ -f /Users/samuelmolinari/.travis/travis.sh ] && source /Users/samuelmolinari/.travis/travis.sh
+
+alias weather='curl wttr.in/London'
+alias be='bundle exec'
+export PATH="/usr/local/opt/postgresql@9.4/bin:$PATH"
+export PATH="/usr/local/opt/kibana@4.4/bin:$PATH"

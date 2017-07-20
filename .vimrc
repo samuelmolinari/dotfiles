@@ -39,6 +39,8 @@ Plugin 'joonty/vdebug.git'
 Plugin 'majutsushi/tagbar'
 Plugin 'Shougo/unite-outline'
 Plugin 'evidens/vim-twig'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'elixir-lang/vim-elixir'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -48,9 +50,7 @@ let mapleader = " "
 set autoread
 au CursorHold * checktime
 set encoding=utf-8
-set clipboard=unnamedplus
 set hidden
-set clipboard=unnamed
 set backspace=2
 set backspace=indent,eol,start
 set background=dark
@@ -119,7 +119,13 @@ let g:unite_split_rule = "botright"
 let g:unite_force_overwrite_statusline = 0
 let g:unite_winheight = 10
 
-let g:unite_source_rec_async_command= 'ag --nocolor --nogroup --hidden -g ""'
+let g:unite_source_rec_async_command='ag --nocolor --nogroup --hidden -g ""'
+let g:unite_source_grep_command='ag'
+let g:unite_source_grep_default_opts =
+      \ '-i --vimgrep --hidden --ignore ' .
+      \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+let g:unite_source_grep_recursive_opt = ''
+
 call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'ignore_pattern', join([
       \ '\.git/',
@@ -128,10 +134,11 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
-nnoremap <C-P> :Unite  -buffer-name=files   -start-insert buffer file_rec/async:!<cr>
+nnoremap <C-P> :Unite -buffer-name=files -start-insert buffer file_rec/async:!<cr>
 nnoremap <C-o> :Unite outline<cr>
 nnoremap <C-g> :Unite grep:.<cr>
-
+autocmd BufWritePre *.rb :%s/\s\+$//e
+autocmd BufNewFile,BufRead *.es6 set syntax=javascript
 autocmd FileType unite call s:unite_settings()
 
 function! s:unite_settings()
