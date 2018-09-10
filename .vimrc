@@ -5,12 +5,16 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'isruslan/vim-es6'
+Plugin 'mxw/vim-jsx'
 Plugin 'scrooloose/nerdtree'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'burnettk/vim-angular'
 Plugin 'elzr/vim-json'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'paranoida/vim-airlineish'
@@ -41,6 +45,7 @@ Plugin 'Shougo/unite-outline'
 Plugin 'evidens/vim-twig'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'jparise/vim-graphql'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -66,7 +71,9 @@ let g:solarized_termtrans = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_solarized_bg='dark'
 let g:tmux_navigator_no_mappings = 1
+let g:jsx_ext_required = 0
 set mouse=a
 set ttymouse=xterm2
 
@@ -140,6 +147,9 @@ nnoremap <C-g> :Unite grep:.<cr>
 autocmd BufWritePre *.rb :%s/\s\+$//e
 autocmd BufNewFile,BufRead *.es6 set syntax=javascript
 autocmd FileType unite call s:unite_settings()
+
+imap jj <C-c>
+imap jk <C-c>
 
 function! s:unite_settings()
   let b:SuperTabDisabled=1

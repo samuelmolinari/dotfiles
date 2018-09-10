@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="miloshadzic"
+ZSH_THEME="nebirhos"
 
 bindkey -v
 
@@ -33,7 +33,6 @@ bindkey -v
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(tmux tmuxinator git ruby rails docker vagrant subl node npm meteor github zsh-syntax-highlighting vi-mode vim-interaction web-search bower brew jsontools)
 
-
 source $ZSH/oh-my-zsh.sh
 
 PATH=$PATH:/usr/local/sbin
@@ -47,6 +46,9 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:"/usr/local/heroku/bin:$PATH"
 export EDITOR=vim
 export KEYTIMEOUT=1
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 function zle-keymap-select zle-line-init zle-line-finish {
   case $KEYMAP in
@@ -62,12 +64,25 @@ zle -N zle-line-init
 zle -N zle-line-finish
 zle -N zle-keymap-select
 
-source $(brew --prefix nvm)/nvm.sh
+#source $(brew --prefix nvm)/nvm.sh
 
 # added by travis gem
 [ -f /Users/samuelmolinari/.travis/travis.sh ] && source /Users/samuelmolinari/.travis/travis.sh
 
 alias weather='curl wttr.in/London'
 alias be='bundle exec'
+alias dce='docker-compose exec'
 export PATH="/usr/local/opt/postgresql@9.4/bin:$PATH"
 export PATH="/usr/local/opt/kibana@4.4/bin:$PATH"
+. $(brew --prefix)/etc/profile.d/z.sh
+source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="/anaconda3/bin:$PATH"
+eval "$(rbenv init -)"
