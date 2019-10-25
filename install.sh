@@ -9,6 +9,18 @@ echo "⚙️  Install fzf"
 brew install fzf nvim
 /usr/local/opt/fzf/install
 
+echo "⚙️  Install nvim"
+brew install nvim
+
+echo "📝 Copy nvim"
+mkdir -p $HOME/.config
+rm -rf $HOME/.config/nvim
+ln -s `pwd`/.config/nvim $HOME/.config/nvim
+
+mkdir -p $HOME/.local/share
+rm -rf $HOME/.local/share/nvim
+ln -s `pwd`/.local/share/nvim $HOME/.local/share/nvim
+
 echo "⚙️  Install nvim plugs"
 vim +PlugInstall +qall
 
@@ -27,10 +39,5 @@ ln -s `pwd`/.tmux.conf $HOME/.tmux.conf
 echo "📝 Copy zshrc"
 rm $HOME/.zshrc
 ln -s `pwd`/.zshrc $HOME/.zshrc
-
-echo "📝 Copy nvim"
-mkdir -p $HOME/.config
-rm -rf $HOME/.config/nvim
-ln -s `pwd`/.config/nvim $HOME/.config/nvim
 
 echo "✅ Done!"

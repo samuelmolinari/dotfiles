@@ -1,0 +1,9 @@
+ERROR 2019-04-06T10:24:05.974 31512 libuv_process_spawn:79: uv_spawn failed: no such file or directory
+ERROR 2019-04-06T12:05:30.460 47316 os_proc_tree_kill:104: getpgid(47321) returned -1
+ERROR 2019-04-06T15:36:18.726 11008 os_proc_tree_kill:104: getpgid(11107) returned -1
+ERROR 2019-04-07T14:55:12.531 53652 os_proc_tree_kill:104: getpgid(55766) returned -1
+ERROR 2019-04-13T17:57:47.537 14825 os_proc_tree_kill:104: getpgid(15916) returned -1
+ERROR 2019-04-14T15:14:56.389 14825 os_proc_tree_kill:104: getpgid(36286) returned -1
+ERROR 2019-05-22T21:17:17.103 5001  os_proc_tree_kill:104: getpgid(10297) returned -1
+ERROR 2019-05-26T18:40:23.409 15787 os_proc_tree_kill:104: getpgid(15805) returned -1
+ERROR 2019-10-25T07:16:03.790 4694  os_proc_tree_kill:104: getpgid(55001) returned -1
