@@ -72,8 +72,10 @@ zle -N zle-keymap-select
 alias weather='curl wttr.in/London'
 alias be='bundle exec'
 alias dce='docker-compose exec'
+alias vim='nvim'
 export PATH="/usr/local/opt/postgresql@9.4/bin:$PATH"
 export PATH="/usr/local/opt/kibana@4.4/bin:$PATH"
+export PATH="/usr/local/bin/VBoxManage:$PATH"
 . $(brew --prefix)/etc/profile.d/z.sh
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -85,4 +87,13 @@ source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="/anaconda3/bin:$PATH"
+export PATH="/usr/local/Cellar/universal-ctags/HEAD-07796ea/bin/ctags:$PATH"
 eval "$(rbenv init -)"
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="/Users/samuelmolinari/Downloads/jormungandr-v0.2.2-x86_64-apple-darwin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPS="--extended"
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'

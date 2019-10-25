@@ -1,0 +1,8 @@
+*.sw?
+.tags
+tags
+tags.tmp
+tags.temp
+tags.lock
+.DS_Store
+node_modules
