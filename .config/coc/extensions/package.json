@@ -2,6 +2,18 @@
   "dependencies": {
     "coc-json": ">=1.9.2",
     "coc-tsserver": ">=2.1.4",
-    "coc-solargraph": ">=1.2.4"
+    "coc-solargraph": ">=1.2.4",
+    "coc-css": ">=2.1.0",
+    "coc-diagnostic": ">=0.24.0",
+    "coc-graphql": ">=0.0.1",
+    "coc-html": ">=1.8.0",
+    "coc-html-css-support": ">=0.4.1",
+    "coc-prettier": ">=9.3.2",
+    "coc-svg": ">=0.0.13",
+    "coc-sql": ">=0.11.0",
+    "coc-tailwindcss": ">=0.7.0",
+    "coc-fzf-preview": ">=2.16.6",
+    "coc-yaml": ">=1.9.0",
+    "coc-xml": ">=1.14.1"
   }
 }

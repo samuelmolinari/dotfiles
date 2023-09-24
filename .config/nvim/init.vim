@@ -11,7 +11,7 @@ call plug#begin()
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'scrooloose/nerdTree'
   Plug '/usr/local/opt/fzf'
-  Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'xuyuanp/nerdtree-git-plugin'
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   Plug 'ryanoasis/vim-devicons'
@@ -46,9 +46,6 @@ nmap ˚ <Plug>MoveLineUp
 nnoremap ˙ :bprevious<CR>
 nnoremap ¬ :bnext<CR>
 
-map <C-g> :Ag<CR>
-map <C-p> :GFiles<CR>
-map <C-b> :Buffers<CR>
 imap jk <C-c>
 imap jj <C-c>
 
@@ -77,6 +74,19 @@ vmap <C-_> <plug>NERDCommenterToggle
 set rtp+=/opt/homebrew/opt/fzf
 let g:fzf_action = {
   \ 'ctrl-o': ':e' }
+
+" fzf config
+
+let g:fzf_preview_git_files_command = 'git ls-files --others --exclude-standard | cut -d\  -f2- && git ls-files --exclude-standard | sort -u'
+map <C-g> "sy:CocCommand fzf-preview.ProjectGrep<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"<CR>
+map <C-p> :CocCommand fzf-preview.GitFiles<CR>
+map <C-b> :CocCommand fzf-preview.Buffers<CR>
+map <C-i>s :CocCommand fzf-preview.GitStatus<CR>
+map <C-i>a :CocCommand fzf-preview.GitActions<CR>
+map <C-i>c :CocCommand fzf-preview.Changes<CR>
+map <C-f> :CocCommand fzf-preview.Lines<CR>
+
+" coc config
 
 " Some servers have issues with backup files, see #649
 set nobackup
@@ -190,14 +200,14 @@ xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
 " Remap <C-f> and <C-b> to scroll float windows/popups
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
+"if has('nvim-0.4.0') || has('patch-8.2.0750')
+  "nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  "nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  "inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  "inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  "vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  "vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+"endif
 
 " Use CTRL-S for selections ranges
 " Requires 'textDocument/selectionRange' support of language server
@@ -235,3 +245,4 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
