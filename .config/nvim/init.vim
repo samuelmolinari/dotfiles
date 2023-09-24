@@ -78,7 +78,7 @@ let g:fzf_action = {
 " fzf config
 
 let g:fzf_preview_git_files_command = 'git ls-files --others --exclude-standard | cut -d\  -f2- && git ls-files --exclude-standard | sort -u'
-map <C-g> "sy:CocCommand fzf-preview.ProjectGrep<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"<CR>
+map <C-g> :CocCommand fzf-preview.ProjectGrep<Space><CR>
 map <C-p> :CocCommand fzf-preview.GitFiles<CR>
 map <C-b> :CocCommand fzf-preview.Buffers<CR>
 map <C-i>s :CocCommand fzf-preview.GitStatus<CR>
