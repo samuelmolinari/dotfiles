@@ -17,6 +17,7 @@ call plug#begin()
   Plug 'bluz71/vim-nightfly-colors', { 'as': 'nightfly' }
   Plug 'vim-airline/vim-airline'
   Plug 'edkolev/tmuxline.vim'
+  Plug 'matze/vim-move'
 call plug#end()
 
 set list listchars=tab:»·,trail:·
