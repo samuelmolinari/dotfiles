@@ -1,6 +1,7 @@
 #! /bin/bash
 
-brew install neovim fzf
+brew tap homebrew/cask-fonts
+brew install neovim fzf font-dejavu-sans-mono-nerd-font
 
 mkdir -p $HOME/.local/share
 

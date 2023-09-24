@@ -1,3 +1,4 @@
 .config/iterm2
 .local/share/nvim/plugged
+.config/coc/extensions/coc-json-data
 fonts
