@@ -22,6 +22,7 @@ call plug#begin()
   Plug 'edkolev/tmuxline.vim'
   Plug 'matze/vim-move'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'preservim/nerdcommenter'
 call plug#end()
 
 set list listchars=tab:»·,trail:·
@@ -68,6 +69,9 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
   \ 'Ignored'   : '☒',
   \ "Unknown"   : "?"
   \ }
+
+nmap <C-_> <plug>NERDCommenterToggle
+vmap <C-_> <plug>NERDCommenterToggle
 
 set rtp+=/opt/homebrew/opt/fzf
 let g:fzf_action = {
