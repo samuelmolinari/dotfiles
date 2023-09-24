@@ -23,6 +23,7 @@ call plug#begin()
   Plug 'matze/vim-move'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'preservim/nerdcommenter'
+  Plug 'tpope/vim-fugitive'
 call plug#end()
 
 set list listchars=tab:»·,trail:·
