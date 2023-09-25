@@ -1,0 +1,9 @@
+{
+  "codeLens.enable": true,
+  "solargraph.useBundler": false,
+  "solargraph.commandPath": "/Users/sam/.rbenv/shims/solargraph",
+  "solargraph.formatting": true,
+  "solargraph.diagnostics": true,
+  "solargraph.checkGemVersion": true,
+  "coc.preferences.formatOnSaveFiletypes": ["*"]
+}

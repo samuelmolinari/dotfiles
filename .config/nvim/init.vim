@@ -77,8 +77,9 @@ let g:fzf_action = {
 
 " fzf config
 
+let g:fzf_preview_command = 'bat --color=always --plain {-1}'
 let g:fzf_preview_git_files_command = 'git ls-files --others --exclude-standard | cut -d\  -f2- && git ls-files --exclude-standard | sort -u'
-map <C-g> :CocCommand fzf-preview.ProjectGrep<Space><CR>
+map <C-g> :CocCommand fzf-preview.ProjectGrep ''<CR>
 map <C-p> :CocCommand fzf-preview.GitFiles<CR>
 map <C-b> :CocCommand fzf-preview.Buffers<CR>
 map <C-i>s :CocCommand fzf-preview.GitStatus<CR>
@@ -246,3 +247,5 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
